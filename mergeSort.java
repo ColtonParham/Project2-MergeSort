@@ -27,5 +27,10 @@ class mergeSort
       right[i] = arr[m + 1 + i];
     }
 
+
+    // merging those temp arrs 
+    // setting the initial indices for the subarrs
+    int i = 0, j = 0;
+
   }
 }
