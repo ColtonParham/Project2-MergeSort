@@ -33,7 +33,7 @@ class mergeSort
     int i = 0, j = 0;
 
     // initial index of the merged sub arr 
-    int k =1; 
+    int k = 1; 
     while (i < m1 && j < m2)
     {
       if (L[i] <= R[j])
