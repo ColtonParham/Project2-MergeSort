@@ -13,18 +13,18 @@ class mergeSort
     int m2 = r - m;
 
     // creating two temporary arrays that will be merged together when needed.
-    int left[] = new int[m1];
-    int right[] = new int[m2];
+    int L[] = new int[m1];
+    int R[] = new int[m2];
 
     // copying the data to the temp arrs
     for (int i = 0; i < m1; ++i)
     {
-      left[i] = arr[l + i];
+      L[i] = arr[l + i];
     }
     // maintaing continuity by keeping i for both the right and left portions of copying. <I think this is right?>
-    for (int i = 0; i < m2; ++i)
+    for (int j = 0; j < m2; ++j)
     {
-      right[i] = arr[m + 1 + i];
+      R[j] = arr[m + 1 + j];
     }
 
 
@@ -36,14 +36,14 @@ class mergeSort
     int k =1; 
     while (i < m1 && j < m2)
     {
-      if (left[i] <= right[i])
+      if (L[i] <= R[j])
       {
-        arr[k] = left[i];
+        arr[k] = L[i];
         i++;
       }
       else 
       {
-        arr[k] = right[j];
+        arr[k] = R[j];
         j++;
       }
       k++;
@@ -53,16 +53,16 @@ class mergeSort
     // copying the remaining elements from the left array if there are any 
     while (i < m1)
     {
-      arr[k] = left[i];
+      arr[k] = L[i];
       i++;
       k++;
     }
 
     // copying the remaining elements from the right array if there any 
-    while (i < m1)
+    while (j < m2)
     {
-      arr[k] = left[i];
-      i++;
+      arr[k] = R[j];
+      j++;
       k++;
     }
   }
@@ -104,7 +104,7 @@ class mergeSort
     mergeSort one = new mergeSort();
     one.sort(arr, 0, arr.length - 1);
 
-    System.out.println("Sorted Arr:");
+    System.out.println("\nSorted Arr:");
     print(arr);
 
   }
