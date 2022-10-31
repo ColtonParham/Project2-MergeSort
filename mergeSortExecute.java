@@ -1,4 +1,7 @@
-// actual code for the mergesort that will be used.
+// actual code for the mergesort that will be used. 
+
+// scanner for input tests...
+import java.util.Scanner;
 
 class mergeSortExecute {
    // merge the first two subarr's
@@ -87,13 +90,53 @@ class mergeSortExecute {
 
   public static void main(String args[])
   {
-    int arr[] = {12, 11, 13, 5, 6, 7};
-    System.out.println("Initial Array: ");
-    printArray(arr);
+    // List of Values to be tested
+    Scanner input = new Scanner(System.in);
+    // input prompt 
+    System.out.print("Please select a test to run: ");
+    // add input list here with specifications for partially sorted, completely unsorted, small array, medium array, and LARGE array 5k+ elements
+    int choice = input.nextInt();
+    // closing input 
+    input.close();
+    
+    // timing variables.
+    long startTime = System.currentTimeMillis();
+    long endTime, elapsed;
+    switch(choice)
+    {
+      case 1: 
+      // small array 
+      int arr1[] = {1, 11, 16, 5, 6, 4};
+      System.out.println("Initial Array: ");
+      printArray(arr1);
+  
+      mergeSortExecute ob1 = new mergeSortExecute(); 
+      // object creation to apply data to 
+      ob1.sort(arr1, 0, arr1.length - 1); 
+      System.out.println("\nMerge Sorted Array: ");
+      printArray(arr1);
+      endTime = System.currentTimeMillis();
+      elapsed = endTime - startTime;
+      System.out.println(elapsed * 0.001 + " Seconds\n");
+      break;
 
-    mergeSortExecute ob = new mergeSortExecute(); 
-    ob.sort(arr, 0, arr.length - 1); // this seems to be the issue
-    System.out.println("\nMerge Sorted Array: ");
-    printArray(arr);
+      case 2:
+      // medium array 
+      int arr2[] = {1, 5, 3, 2, 12, 15, 8, 6, 1, 9, 29, 21, 17, 5, 14, 1, 8, 17, 6, 22, 25};
+      System.out.println("Initial Array: ");
+      printArray(arr2);
+  
+      mergeSortExecute ob2 = new mergeSortExecute(); 
+      // object creation to apply data to 
+      ob2.sort(arr2, 0, arr2.length - 1); 
+      System.out.println("\nMerge Sorted Array: ");
+      printArray(arr2);
+      // calculation for time it takes to run.
+      endTime = System.currentTimeMillis();
+      elapsed = endTime - startTime;
+      System.out.println(elapsed * 0.001 + " Seconds\n");
+    }
+
+    
   }
 }
