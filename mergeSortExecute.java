@@ -1,6 +1,6 @@
 // actual code for the mergesort that will be used.
 
-public class mergeSortExecute {
+class mergeSortExecute {
    // merge the first two subarr's
   // Subarray (or first array connected) = arr[l->m]
   // Subarray (or second array connected) = arr[m+1->r]
@@ -26,7 +26,7 @@ public class mergeSortExecute {
     // merging temp arrs 
     // setting initial index of merged sub arr
     int i = 0, j = 0;
-    int k = 1;
+    int k = l;
     while (i < n1 && j < n2)
     {
       if (L[i] <= R[j])
@@ -64,7 +64,7 @@ public class mergeSortExecute {
     if (l < r)
     {
       // middle point calculation
-      int m = 1 + (r - 1) / 2;
+      int m = l + (r - l) / 2;
       // sorting the first and second halves. - recurs on self.
       sort(arr, l, m);
       sort(arr, m + 1, r);
@@ -79,7 +79,8 @@ public class mergeSortExecute {
     int n = arr.length;
     for (int i = 0; i < n; ++i)
     {
-      System.out.println(arr[i] + " ");
+      // individual element printing //
+      System.out.print(arr[i] + " ");
     }
     System.out.println();
   }
@@ -90,8 +91,8 @@ public class mergeSortExecute {
     System.out.println("Initial Array: ");
     printArray(arr);
 
-    mergeSortExecute ob = new mergeSortExecute();
-    ob.sort(arr, 0, arr.length - 1);
+    mergeSortExecute ob = new mergeSortExecute(); 
+    ob.sort(arr, 0, arr.length - 1); // this seems to be the issue
     System.out.println("\nMerge Sorted Array: ");
     printArray(arr);
   }
