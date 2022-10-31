@@ -68,17 +68,17 @@ class mergeSort
   }
 
   // sorts for the arrs, recurs on self - using a bi-reference later in the function.
-  void sort(int arr[], int left, int right)
+  void sort(int arr[], int l, int r)
   {
-    if (left < right)
+    if (l < r)
     {
       // locating the middle point 
-      int middle = 1 + (right - 1) / 2;
+      int middle = 1 + (r - 1) / 2;
       // sorting first and second half
-      sort(arr, left, middle);
-      sort(arr, middle + 1, right);
+      sort(arr, l, middle);
+      sort(arr, middle + 1, r);
       // merging the sorted halves 
-      merge(arr, left, middle, right);
+      merge(arr, l, middle, r);
     }
   }
 
