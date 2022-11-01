@@ -125,7 +125,7 @@ class mergeSortExecute {
       int arr2[] = {1, 5, 3, 2, 12, 15, 8, 6, 1, 9, 29, 21, 17, 5, 14, 1, 8, 17, 6, 22, 25};
       System.out.println("Initial Array: ");
       printArray(arr2);
-  
+    
       mergeSortExecute ob2 = new mergeSortExecute(); 
       // object creation to apply data to 
       ob2.sort(arr2, 0, arr2.length - 1); 
