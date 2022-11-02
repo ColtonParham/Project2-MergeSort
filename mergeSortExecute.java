@@ -142,7 +142,30 @@ class mergeSortExecute {
       break;
 
       case 3: 
-      int arr3[] = {};
+      // medium array - random assortion - might need to just create a function or something to generate X amount of random values.
+      int arr3[] = {631, 699, 867, 950, 329, 846, 951, 83, 291, 85, 591, 93, 644, 78, 938, 541, 141, 415, 247, 914, 775, 173, 2, 445, 
+        519, 465, 913, 418, 842, 836, 639, 307, 157, 235, 106, 183, 356, 385, 760, 449, 920, 507, 56, 669, 528, 269, 164, 
+        129, 894, 20, 454, 160, 74, 417, 923, 493, 625, 822, 795, 455, 205, 824, 900, 388, 122, 843, 924, 818, 979, 980, 16, 
+        256, 710, 788, 282, 92, 453, 402, 268, 241, 617, 902, 66, 105, 635, 632, 821, 683, 557, 838, 694, 116, 468, 653, 859, 
+        138, 13, 463, 64, 794, 119, 740, 687, 24, 353, 244, 321, 452, 879, 739, 614, 725, 501, 131, 566, 948, 864, 435, 553, 15, 
+        634, 524, 909, 97, 326, 807, 698, 43, 621, 782, 371, 615, 57, 689, 99, 384, 605, 45, 574, 579, 258, 331, 386, 550, 779, 752,
+         461, 188, 702, 734, 242, 512, 364, 5, 764, 41, 320, 988, 464, 239, 86, 831, 626, 478, 798, 223, 793, 531, 611, 401, 132, 743, 
+         361, 266, 71, 607, 195, 397, 762, 809, 971, 568, 958, 189, 877, 422, 594, 447, 940, 858, 854, 406, 515, 460, 738, 36, 933, 372,
+          448, 593, 709, 547, 230, 393, 170, 427, 18, 823, 763, 178, 941, 103, 987, 984, 810, 777, 344, 735, 962, 12, 744, 546, 520, 832};
+      System.out.println("Initial Array: "); // might need to get rid of that 
+      printArray(arr3); // same with this
+    
+      mergeSortExecute ob3 = new mergeSortExecute(); 
+      // object creation to apply data to 
+      ob3.sort(arr3, 0, arr3.length - 1); 
+      System.out.println("\nMerge Sorted Array: ");
+      printArray(arr3);
+      // calculation for time it takes to run.
+      endTime = System.currentTimeMillis();
+      elapsed = endTime - startTime;
+      System.out.println(elapsed * 0.001 + " Seconds\n");
+      System.out.println("Medium Array: 222 Elements, Randomly Assorted");
+      break;
     }
 
     
