@@ -105,7 +105,7 @@ class mergeSortExecute {
     switch(choice)
     {
       case 1: 
-      // small array 
+      // small array - random assortion
       int arr1[] = {1, 11, 16, 5, 6, 4};
       System.out.println("Initial Array: ");
       printArray(arr1);
@@ -115,13 +115,16 @@ class mergeSortExecute {
       ob1.sort(arr1, 0, arr1.length - 1); 
       System.out.println("\nMerge Sorted Array: ");
       printArray(arr1);
+      // takes into account the system time 
       endTime = System.currentTimeMillis();
       elapsed = endTime - startTime;
+      // Print statements for the results, gives the element count and such
       System.out.println(elapsed * 0.001 + " Seconds\n");
+      System.out.println("Extra Small Array: 6 Elements, Randomly Assorted");
       break;
 
       case 2:
-      // medium array 
+      // small array - random assortion
       int arr2[] = {1, 5, 3, 2, 12, 15, 8, 6, 1, 9, 29, 21, 17, 5, 14, 1, 8, 17, 6, 22, 25};
       System.out.println("Initial Array: ");
       printArray(arr2);
@@ -135,6 +138,11 @@ class mergeSortExecute {
       endTime = System.currentTimeMillis();
       elapsed = endTime - startTime;
       System.out.println(elapsed * 0.001 + " Seconds\n");
+      System.out.println("Small Array: 21 Elements, Randomly Assorted");
+      break;
+
+      case 3: 
+      int arr3[] = {};
     }
 
     
