@@ -7,11 +7,11 @@ class mergeSortExecute {
    // merge the first two subarr's
   // Subarray (or first array connected) = arr[l->m]
   // Subarray (or second array connected) = arr[m+1->r]
-  void merge(int arr[], int l,int m, int r)
+  void merge(int arr[], int left,int m, int right)
   {
     // size of subarr
-    int n1 = m - l + 1;
-    int n2 = r - m;
+    int n1 = m - left + 1;
+    int n2 = right - m;
 
     int L[] = new int[n1];
     int R[] = new int[n2];
@@ -19,7 +19,7 @@ class mergeSortExecute {
     // copying data 
     for (int i = 0; i < n1; ++i)
     {
-      L[i] = arr[l + i];
+      L[i] = arr[left + i];
     }
     for (int j = 0; j < n2; ++j)
     {
@@ -29,7 +29,7 @@ class mergeSortExecute {
     // merging temp arrs 
     // setting initial index of merged sub arr
     int i = 0, j = 0;
-    int k = l;
+    int k = left;
     while (i < n1 && j < n2)
     {
       if (L[i] <= R[j])
@@ -62,17 +62,17 @@ class mergeSortExecute {
   }
 
   // actually sorting 
-  void sort(int arr[], int l, int r)
+  void sort(int arr[], int left, int right)
   {
-    if (l < r)
+    if (left < right)
     {
       // middle point calculation
-      int m = l + (r - l) / 2;
+      int m = left + (right - left) / 2;
       // sorting the first and second halves. - recurs on self.
-      sort(arr, l, m);
-      sort(arr, m + 1, r);
+      sort(arr, left, m);
+      sort(arr, m + 1, right);
       // merging the sorted halves
-      merge(arr, l, m , r);
+      merge(arr, left, m , right);
     }
   }
 
