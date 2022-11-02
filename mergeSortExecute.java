@@ -1,6 +1,7 @@
 // actual code for the mergesort that will be used. 
 
 // scanner for input tests...
+import java.util.Random;
 import java.util.Scanner;
 
 class mergeSortExecute {
@@ -76,20 +77,11 @@ class mergeSortExecute {
     }
   }
 
-  // print out the array 
-  static void printArray(int arr[])
-  {
-    int n = arr.length;
-    for (int i = 0; i < n; ++i)
-    {
-      // individual element printing //
-      System.out.print(arr[i] + " ");
-    }
-    System.out.println();
-  }
+// removed the print array since we don't need it in the final program..  
 
   public static void main(String args[])
   {
+    // still need to add a lis of options for what to choose, like 2M from file, hardcoded, as well as randomly generated values 
     // List of Values to be tested
     Scanner input = new Scanner(System.in);
     // input prompt 
@@ -105,16 +97,13 @@ class mergeSortExecute {
     switch(choice)
     {
       case 1: 
-      // small array - random assortion
+      // very small array - random assortion
       int arr1[] = {1, 11, 16, 5, 6, 4};
       System.out.println("Initial Array: ");
-      printArray(arr1);
   
       mergeSortExecute ob1 = new mergeSortExecute(); 
       // object creation to apply data to 
       ob1.sort(arr1, 0, arr1.length - 1); 
-      System.out.println("\nMerge Sorted Array: ");
-      printArray(arr1);
       // takes into account the system time 
       endTime = System.currentTimeMillis();
       elapsed = endTime - startTime;
@@ -126,14 +115,11 @@ class mergeSortExecute {
       case 2:
       // small array - random assortion
       int arr2[] = {1, 5, 3, 2, 12, 15, 8, 6, 1, 9, 29, 21, 17, 5, 14, 1, 8, 17, 6, 22, 25};
-      System.out.println("Initial Array: ");
-      printArray(arr2);
     
       mergeSortExecute ob2 = new mergeSortExecute(); 
       // object creation to apply data to 
       ob2.sort(arr2, 0, arr2.length - 1); 
       System.out.println("\nMerge Sorted Array: ");
-      printArray(arr2);
       // calculation for time it takes to run.
       endTime = System.currentTimeMillis();
       elapsed = endTime - startTime;
@@ -152,20 +138,41 @@ class mergeSortExecute {
          461, 188, 702, 734, 242, 512, 364, 5, 764, 41, 320, 988, 464, 239, 86, 831, 626, 478, 798, 223, 793, 531, 611, 401, 132, 743, 
          361, 266, 71, 607, 195, 397, 762, 809, 971, 568, 958, 189, 877, 422, 594, 447, 940, 858, 854, 406, 515, 460, 738, 36, 933, 372,
           448, 593, 709, 547, 230, 393, 170, 427, 18, 823, 763, 178, 941, 103, 987, 984, 810, 777, 344, 735, 962, 12, 744, 546, 520, 832};
-      System.out.println("Initial Array: "); // might need to get rid of that 
-      printArray(arr3); // same with this
-    
+      // creating new object to apply this instance of the merge sort to.
       mergeSortExecute ob3 = new mergeSortExecute(); 
       // object creation to apply data to 
       ob3.sort(arr3, 0, arr3.length - 1); 
       System.out.println("\nMerge Sorted Array: ");
-      printArray(arr3);
+      
       // calculation for time it takes to run.
       endTime = System.currentTimeMillis();
       elapsed = endTime - startTime;
       System.out.println(elapsed * 0.001 + " Seconds\n");
       System.out.println("Medium Array: 222 Elements, Randomly Assorted");
       break;
+
+      // utilizing random values
+      case 4:
+      Random rd = new Random();
+      int arr4[] = new int[50000];
+      for (int i = 0; i < arr4.length; i++)
+      {
+        arr4[i] = rd.nextInt();
+      }
+
+      System.out.println("Initial Array: "); // might need to get rid of that 
+      //printArray(arr4); // same with this
+    
+      mergeSortExecute ob4 = new mergeSortExecute(); 
+      // object creation to apply data to 
+      ob4.sort(arr4, 0, arr4.length - 1); 
+      System.out.println("\nMerge Sorted Array: ");
+      //printArray(arr4);
+      // calculation for time it takes to run.
+      endTime = System.currentTimeMillis();
+      elapsed = endTime - startTime;
+      System.out.println(elapsed * 0.001 + " Seconds\n");
+      System.out.println("Medium-Large Array: 50000 Elements, Randomly Assorted, and Generated");
     }
 
     
