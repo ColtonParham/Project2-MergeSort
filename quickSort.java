@@ -1,6 +1,17 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class quickSort {
-  public static void main(String args[]) {
+  public static void main(String args[]) throws FileNotFoundException {
     // okay didnt realize that it needs to be defined as an integer not INT. 
+    Scanner scanner = new Scanner(new File("arr1alt.txt"));
+        int [] tall = new int [2000000];
+        int i = 0;
+        while(scanner.hasNextInt())
+        {
+             tall[i++] = scanner.nextInt();
+        }
     long endTime, elapsed;
     long startTime = System.currentTimeMillis();
     Integer arr[] = {631, 699, 867, 950, 329, 846, 951, 83, 291, 85, 591, 93, 644, 78, 938, 541, 141, 415, 247, 914, 775, 173, 2, 445, 
