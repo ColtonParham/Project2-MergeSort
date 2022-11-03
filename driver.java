@@ -52,8 +52,8 @@ public class driver{
         System.out.print("Took " + elapsed * 0.001 + " Seconds to run and sort through the Array\n");
         System.out.println("Extra Small Array: 25,000 Elements(In range from 1-25,000), Randomly Assorted, and Randomly Generated Values");
 
-       // quick sort: 
-       
+       // quick sort: may need to explore the idea of having a comparable to pass from mergesort instead...
+       //quickSort(arr1);
 
       break;
 
