@@ -19,6 +19,7 @@ public class driver{
     
     // random object to be used.
     Random rd = new Random();
+    // might need to move these for instance based? 
     long endTime, elapsed;
     switch(choice)
     {
@@ -50,6 +51,10 @@ public class driver{
         // Displays the Time it took to run/sort the array
         System.out.print("Took " + elapsed * 0.001 + " Seconds to run and sort through the Array\n");
         System.out.println("Extra Small Array: 25,000 Elements(In range from 1-25,000), Randomly Assorted, and Randomly Generated Values");
+
+       // quick sort: 
+       
+
       break;
 
       // Case 2: Small Array: Randomly Generated Values - Completely Unsorted (50k units)

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class quickSort {
-  public static void quicksort(Comparable[] arr)
+  public static void quickSort(Comparable[] arr)
   {
     quickSort(arr, 0, arr.length);
   }

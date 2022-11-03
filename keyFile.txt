@@ -6,5 +6,5 @@
 6. Extra Large Array: Randomly Generated Values - Completely Unsorted (1M units)
 7. <FILE>Extra Extra Large Array: Hard-Code Defined Values - Completely Unsorted, and values generated from website, and will be the same across (10M Units)
 8. Super Extra Large Array: Randomly Generated Values - Completely Unsorted (200M units)
-9. Almost Sorted Large Array: Array values are randomized, presorted almost (500k units)
-10. Almost Sorted Extra Large Array: Array values are randomized, presorted almost (1M units)
+9. Almost Sorted Large Array: Array values are randomized, presorted almost (500k units) <Tenative>
+10. Almost Sorted Extra Large Array: Array values are randomized, presorted almost (1M units) <Tenative>
