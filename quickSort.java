@@ -1,3 +1,5 @@
+// QuickSort - Median of 3, with a cutoff of 15
+
 import java.util.Scanner;
 
 public class quickSort {
