@@ -1,6 +1,6 @@
-// actual code for the mergesort that will be used. 
 
-// scanner for input tests...
+
+// scanner for input tests, as well as the random, for the random values to be produced inside of the arrays.
 import java.util.Random;
 import java.util.Scanner;
 
@@ -14,6 +14,7 @@ class mergeSortExecute {
     int n1 = m - left + 1;
     int n2 = right - m;
 
+    // setting up the left and right of the arr.
     int L[] = new int[n1];
     int R[] = new int[n2];
 
@@ -72,12 +73,10 @@ class mergeSortExecute {
       // sorting the first and second halves. - recurs on self.
       sort(arr, left, m);
       sort(arr, m + 1, right);
-      // merging the sorted halves
+      // merging the sorted halves at the end of the function
       merge(arr, left, m , right);
     }
   }
-
-// removed the print array since we don't need it in the final program..  
 
   public static void main(String args[])
   {
@@ -91,88 +90,126 @@ class mergeSortExecute {
     // closing input 
     input.close();
     
-    // timing variables.
-    long startTime = System.currentTimeMillis();
+    // random object to be used.
+    Random rd = new Random();
     long endTime, elapsed;
     switch(choice)
     {
+
+      // Case 1: Extra Small Array: Randomly Generated Values - Completely Unsorted (25k units)
       case 1: 
-      // very small array - random assortion
-      int arr1[] = {1, 11, 16, 5, 6, 4};
-      System.out.println("Initial Array: ");
-  
-      mergeSortExecute ob1 = new mergeSortExecute(); 
-      // object creation to apply data to 
-      ob1.sort(arr1, 0, arr1.length - 1); 
-      // takes into account the system time 
-      endTime = System.currentTimeMillis();
-      elapsed = endTime - startTime;
-      // Print statements for the results, gives the element count and such
-      System.out.println(elapsed * 0.001 + " Seconds\n");
-      System.out.println("Extra Small Array: 6 Elements, Randomly Assorted");
-      break;
-
-      case 2:
-      // small array - random assortion
-      int arr2[] = {1, 5, 3, 2, 12, 15, 8, 6, 1, 9, 29, 21, 17, 5, 14, 1, 8, 17, 6, 22, 25};
+        // very small array - random assortion
+        // having the start time start within the actual case, for most accurate timing.
+        long startTime1 = System.currentTimeMillis();
+        // generating array of 25k random elements
+        
+        int arr1[] = new int[25000];
+        for (int i = 0; i < arr1.length; i++)
+       {
+          // running the random values into the array. 
+          arr1[i] = rd.nextInt();
+       }
     
-      mergeSortExecute ob2 = new mergeSortExecute(); 
-      // object creation to apply data to 
-      ob2.sort(arr2, 0, arr2.length - 1); 
-      System.out.println("\nMerge Sorted Array: ");
-      // calculation for time it takes to run.
-      endTime = System.currentTimeMillis();
-      elapsed = endTime - startTime;
-      System.out.println(elapsed * 0.001 + " Seconds\n");
-      System.out.println("Small Array: 21 Elements, Randomly Assorted");
-      break;
-
-      case 3: 
-      // medium array - random assortion - might need to just create a function or something to generate X amount of random values.
-      int arr3[] = {631, 699, 867, 950, 329, 846, 951, 83, 291, 85, 591, 93, 644, 78, 938, 541, 141, 415, 247, 914, 775, 173, 2, 445, 
-        519, 465, 913, 418, 842, 836, 639, 307, 157, 235, 106, 183, 356, 385, 760, 449, 920, 507, 56, 669, 528, 269, 164, 
-        129, 894, 20, 454, 160, 74, 417, 923, 493, 625, 822, 795, 455, 205, 824, 900, 388, 122, 843, 924, 818, 979, 980, 16, 
-        256, 710, 788, 282, 92, 453, 402, 268, 241, 617, 902, 66, 105, 635, 632, 821, 683, 557, 838, 694, 116, 468, 653, 859, 
-        138, 13, 463, 64, 794, 119, 740, 687, 24, 353, 244, 321, 452, 879, 739, 614, 725, 501, 131, 566, 948, 864, 435, 553, 15, 
-        634, 524, 909, 97, 326, 807, 698, 43, 621, 782, 371, 615, 57, 689, 99, 384, 605, 45, 574, 579, 258, 331, 386, 550, 779, 752,
-         461, 188, 702, 734, 242, 512, 364, 5, 764, 41, 320, 988, 464, 239, 86, 831, 626, 478, 798, 223, 793, 531, 611, 401, 132, 743, 
-         361, 266, 71, 607, 195, 397, 762, 809, 971, 568, 958, 189, 877, 422, 594, 447, 940, 858, 854, 406, 515, 460, 738, 36, 933, 372,
-          448, 593, 709, 547, 230, 393, 170, 427, 18, 823, 763, 178, 941, 103, 987, 984, 810, 777, 344, 735, 962, 12, 744, 546, 520, 832};
-      // creating new object to apply this instance of the merge sort to.
-      mergeSortExecute ob3 = new mergeSortExecute(); 
-      // object creation to apply data to 
-      ob3.sort(arr3, 0, arr3.length - 1); 
-      System.out.println("\nMerge Sorted Array: ");
+        // object creation for the first object 
+       mergeSortExecute ob1 = new mergeSortExecute(); 
       
-      // calculation for time it takes to run.
-      endTime = System.currentTimeMillis();
-      elapsed = endTime - startTime;
-      System.out.println(elapsed * 0.001 + " Seconds\n");
-      System.out.println("Medium Array: 222 Elements, Randomly Assorted");
+        // function call for the sort 
+        ob1.sort(arr1, 0, arr1.length - 1); 
+        System.out.println("\nMerge Sorted Array: ");
+
+        // calculation for time it takes to run.
+        endTime = System.currentTimeMillis();
+        elapsed = endTime - startTime1;
+        // Displays the Time it took to run/sort the array
+        System.out.print("Took " + elapsed * 0.001 + " Seconds to run and sort through the Array\n");
+        System.out.println("Extra Small Array: 25,000 Elements, Randomly Assorted, and Randomly Generated Values");
       break;
 
-      // utilizing random values
-      case 4:
-      Random rd = new Random();
-      int arr4[] = new int[50000];
-      for (int i = 0; i < arr4.length; i++)
-      {
-        arr4[i] = rd.nextInt();
-      }
-
-      System.out.println("Initial Array: "); // might need to get rid of that 
-      //printArray(arr4); // same with this
+      // Case 2: Small Array: Randomly Generated Values - Completely Unsorted (50k units)
+      case 2:
+       // small array - random assortion
+        // having the start time start within the actual case, for most accurate timing.
+        long startTime2 = System.currentTimeMillis();
+        // generating array of 50k random elements
+        int arr2[] = new int[50000];
+        for (int i = 0; i < arr2.length; i++)
+       {
+          // running the random values into the array. 
+          arr2[i] = rd.nextInt();
+       }
     
-      mergeSortExecute ob4 = new mergeSortExecute(); 
-      // object creation to apply data to 
-      ob4.sort(arr4, 0, arr4.length - 1); 
-      System.out.println("\nMerge Sorted Array: ");
-      //printArray(arr4);
-      // calculation for time it takes to run.
-      endTime = System.currentTimeMillis();
-      elapsed = endTime - startTime;
-      System.out.println(elapsed * 0.001 + " Seconds\n");
-      System.out.println("Medium-Large Array: 50000 Elements, Randomly Assorted, and Generated");
+        // object creation for the second object 
+       mergeSortExecute ob2 = new mergeSortExecute(); 
+      
+        // function call for the sort 
+        ob2.sort(arr2, 0, arr2.length - 1); 
+        System.out.println("\nMerge Sorted Array: ");
+
+        // calculation for time it takes to run.
+        endTime = System.currentTimeMillis();
+        elapsed = endTime - startTime2;
+        // Displays the Time it took to run/sort the array
+        System.out.print("Took " + elapsed * 0.001 + " Seconds to run and sort through the Array\n");
+        System.out.println("Small Array: 50,000 Elements, Randomly Assorted, and Randomly Generated Values");
+      break;
+
+      // Case 3: Medium Small Array: Randomly Generated Values - Completely Unsorted (100k units)
+      case 3:
+        // medium small array - random assortion
+        // having the start time start within the actual case, for most accurate timing.
+        long startTime3 = System.currentTimeMillis();
+        // generating array of 100k random elements
+        int arr3[] = new int[100000];
+        for (int i = 0; i < arr3.length; i++)
+       {
+          // running the random values into the array. 
+          arr3[i] = rd.nextInt();
+       }
+    
+        // object creation for the second object 
+       mergeSortExecute ob3 = new mergeSortExecute(); 
+      
+        // function call for the sort 
+        ob3.sort(arr3, 0, arr3.length - 1); 
+        System.out.println("\nMerge Sorted Array: ");
+
+        // calculation for time it takes to run.
+        endTime = System.currentTimeMillis();
+        elapsed = endTime - startTime3;
+        // Displays the Time it took to run/sort the array
+        System.out.print("Took " + elapsed * 0.001 + " Seconds to run and sort through the Array\n");
+        System.out.println("Medium Small Array: 100,000 Elements, Randomly Assorted, and Randomly Generated Values");
+      break;
+
+      // Case 4: Medium Array: Randomly Generated Values - Completely Unsorted (200k units)
+      case 4:
+        // medium array - random assortion
+        // having the start time start within the actual case, for most accurate timing.
+        long startTime4 = System.currentTimeMillis();
+        // generating array of 100k random elements
+        int arr4[] = new int[200000];
+        for (int i = 0; i < arr4.length; i++)
+       {
+          // running the random values into the array. 
+          arr4[i] = rd.nextInt();
+       }
+    
+        // object creation for the second object 
+       mergeSortExecute ob4 = new mergeSortExecute(); 
+      
+        // function call for the sort 
+        ob4.sort(arr4, 0, arr4.length - 1); 
+        System.out.println("\nMerge Sorted Array: ");
+
+        // calculation for time it takes to run.
+        endTime = System.currentTimeMillis();
+        elapsed = endTime - startTime4;
+        // Displays the Time it took to run/sort the array
+        System.out.print("Took " + elapsed * 0.001 + " Seconds to run and sort through the Array\n");
+        System.out.println("Medium Array: 200,000 Elements, Randomly Assorted, and Randomly Generated Values");
+      break;
+
+      
     }
 
     
