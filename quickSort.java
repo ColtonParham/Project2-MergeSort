@@ -6,17 +6,11 @@ import java.util.Scanner;
 public class quickSort {
   public static void main(String args[]) throws FileNotFoundException {
     // okay didnt realize that it needs to be defined as an integer not INT.  - Tall Array
-    Scanner scanner = new Scanner(new File("arr1alt.txt"));
-        int [] tall = new int [2000000];
-        int i = 0;
-        while(scanner.hasNextInt())
-        {
-             tall[i++] = scanner.nextInt();
-        }
+    
 
         // randomly generated values 
         Random rd = new Random();
-        Integer arr4[] = new Integer[50000];
+        Integer arr4[] = new Integer[1000000];
         for (int j = 0; j < arr4.length; j++)
         {
           arr4[j] = rd.nextInt();
