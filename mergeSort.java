@@ -112,7 +112,7 @@ class mergeSort {
           arr1[i] = rd.nextInt();
        }
     
-        // object creation for the first object 
+        // object creation for the object 
        mergeSort ob1 = new mergeSort(); 
       
         // function call for the sort 
@@ -140,7 +140,7 @@ class mergeSort {
           arr2[i] = rd.nextInt();
        }
     
-        // object creation for the second object 
+        // object creation for the object 
        mergeSort ob2 = new mergeSort(); 
       
         // function call for the sort 
@@ -168,7 +168,7 @@ class mergeSort {
           arr3[i] = rd.nextInt();
        }
     
-        // object creation for the second object 
+        // object creation for the object 
        mergeSort ob3 = new mergeSort(); 
       
         // function call for the sort 
@@ -188,7 +188,7 @@ class mergeSort {
         // medium array - random assortion
         // having the start time start within the actual case, for most accurate timing.
         long startTime4 = System.currentTimeMillis();
-        // generating array of 100k random elements
+        // generating array of 200k random elements
         int arr4[] = new int[200000];
         for (int i = 0; i < arr4.length; i++)
        {
@@ -196,7 +196,7 @@ class mergeSort {
           arr4[i] = rd.nextInt();
        }
     
-        // object creation for the second object 
+        // object creation for the object 
        mergeSort ob4 = new mergeSort(); 
       
         // function call for the sort 
@@ -216,7 +216,7 @@ class mergeSort {
        // Large array - random assortion
         // having the start time start within the actual case, for most accurate timing.
         long startTime5 = System.currentTimeMillis();
-        // generating array of 100k random elements
+        // generating array of 500k random elements
         int arr5[] = new int[500000];
         for (int i = 0; i < arr5.length; i++)
        {
@@ -224,7 +224,7 @@ class mergeSort {
           arr5[i] = rd.nextInt();
        }
     
-        // object creation for the second object 
+        // object creation for the object 
        mergeSort ob5 = new mergeSort(); 
       
         // function call for the sort 
@@ -244,7 +244,7 @@ class mergeSort {
              // Large array - random assortion
         // having the start time start within the actual case, for most accurate timing.
         long startTime6 = System.currentTimeMillis();
-        // generating array of 100k random elements
+        // generating array of 1M random elements
         int arr6[] = new int[1000000];
         for (int i = 0; i < arr6.length; i++)
        {
@@ -252,7 +252,7 @@ class mergeSort {
           arr6[i] = rd.nextInt();
        }
     
-        // object creation for the second object 
+        // object creation for the object 
        mergeSort ob6 = new mergeSort(); 
       
         // function call for the sort 
@@ -274,13 +274,13 @@ class mergeSort {
       // generating array of 100k random elements
       Scanner scanner = new Scanner(new File("arr1alt.txt"));
       int arr7[] = new int[10000000];
-      int i = 0;
+      int j = 0;
       while(scanner.hasNextInt())
       {
-        arr7[i++] = scanner.nextInt();
+        arr7[j++] = scanner.nextInt();
       }
 
-      // object creation for the second object 
+      // object creation for the object 
       mergeSort ob7 = new mergeSort(); 
 
       // function call for the sort 
@@ -294,7 +294,64 @@ class mergeSort {
       System.out.print("Took " + elapsed * 0.001 + " Seconds to run and sort through the Array\n");
       System.out.println("Extra Extra Large Array: 10,000,000 Elements(In range from 1-10,000,000), Randomly Assorted, and Randomly Generated Values, from txt file");
       break;
-    }
+
+      // Case 8: Super Extra Large Array: Randomly Generated Values - Completely Unsorted (200M units)
+      case 8:
+      // Super Extra Large Array - 200 M elements
+        // having the start time start within the actual case, for most accurate timing.
+        long startTime8 = System.currentTimeMillis();
+       
+        int arr8[] = new int[200000000];
+        for (int i = 0; i < arr8.length; i++)
+       {
+          // running the random values into the array. 
+          arr8[i] = rd.nextInt();
+       }
+    
+        // object creation for the object 
+       mergeSort ob8 = new mergeSort(); 
+      
+        // function call for the sort 
+        ob8.sort(arr8, 0, arr8.length - 1); 
+        System.out.println("\nMerge Sorted Array: ");
+
+        // calculation for time it takes to run.
+        endTime = System.currentTimeMillis();
+        elapsed = endTime - startTime8;
+        // Displays the Time it took to run/sort the array
+        System.out.print("Took " + elapsed * 0.001 + " Seconds to run and sort through the Array\n");
+        System.out.println("Super Extra Large Array: 200,000,000 Elements(In range from 1-200,000,000), Randomly Assorted, and Randomly Generated Values");
+        break;
+    
+    // Case 9 : Almost Sorted Large Array: Array is predefined, presorted (500k units)
+    case 9:
+    // Randomly Defined Array
+      // having the start time start within the actual case, for most accurate timing.
+      long startTime9 = System.currentTimeMillis();
+     
+      // defining array size
+      int arr9[] = new int[500000];
+      arr9[0] = (int)(Math.random()*10) + 1;
+      for (int a = 1; a < arr9.length;a++)
+      {
+        arr9[a] = arr9[a-1] + (int)(Math.random() * 12) - 2;
+      }
+
+      // object creation for the object 
+     mergeSort ob9 = new mergeSort(); 
+    
+      // function call for the sort 
+      ob9.sort(arr9, 0, arr9.length - 1); 
+      System.out.println("\nMerge Sorted Array: ");
+
+      // calculation for time it takes to run.
+      endTime = System.currentTimeMillis();
+      elapsed = endTime - startTime9;
+      // Displays the Time it took to run/sort the array
+      System.out.print("Took " + elapsed * 0.001 + " Seconds to run and sort through the Array\n");
+      System.out.println("Almost Sorted Large Array: 500,000 Elements(In range from 1-500,000), Randomly Assorted, and Randomly Generated Values");
+      break;
+  }
 
     
   }
