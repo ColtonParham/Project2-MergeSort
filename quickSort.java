@@ -1,83 +1,84 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Random;
 import java.util.Scanner;
 
 public class quickSort {
-  public static void main(String args[]) throws FileNotFoundException {
-    // okay didnt realize that it needs to be defined as an integer not INT.  - Tall Array
-    
-
-        // randomly generated values 
-        Random rd = new Random();
-        Integer arr4[] = new Integer[1000000];
-        for (int j = 0; j < arr4.length; j++)
-        {
-          arr4[j] = rd.nextInt();
-        }
-    long endTime, elapsed;
-    long startTime = System.currentTimeMillis();
-    
-      quicksort(arr4);
-      endTime = System.currentTimeMillis();
-      elapsed = endTime - startTime;
-      System.out.println(elapsed * 0.001 + " Seconds\n"); 
-      
+  public static void quicksort(Comparable[] arr)
+  {
+    quickSort(arr, 0, arr.length);
   }
 
-  public static void quicksort(Comparable[] a) {
-    quicksort(a, 0, a.length - 1);
-  }
-
-  static void quicksort(Comparable[] a, int low, int high) {
-    int CUTOFF = 15;
-    if (low + CUTOFF > high)
-      insertionSort(a, low, high);
-    else {
-      int middle = (low + high) / 2;
-      if (a[middle].compareTo(a[low]) < 0)
-        swapReferences(a, low, middle);
-      if (a[high].compareTo(a[low]) < 0)
-        swapReferences(a, low, high);
-      if (a[high].compareTo(a[middle]) < 0)
-        swapReferences(a, middle, high);
-
-      swapReferences(a, middle, high - 1);
-      Comparable pivot = a[high - 1];
-
-      int i, j;
-      for (i = low, j = high - 1;;) {
-        while (a[++i].compareTo(pivot) < 0)
-          ;
-        while (pivot.compareTo(a[--j]) < 0)
-          ;
-        if (i >= j)
-          break;
-        swapReferences(a, i, j);
+  static void quickSort(Comparable[] arr, int low, int high)
+  {
+    // setting the cutoff point to 15 as required by the instructions 
+    int cutOffPoint = 15;
+    if (low + cutOffPoint > high)
+    {
+      // setting condition to switch to the insertion sort if the condition of size is met
+      insertionSort(arr, low, high);
+    }
+    // else condition to run the quickSort with the median of 3 rule.
+    else 
+    {
+      // median of 3 conditions 
+      int mid = (low + high) / 2;
+      if (arr[mid].compareTo(arr[low]) < 0)
+      {
+        swapRefIndex(arr, low, mid);
       }
-      swapReferences(a, i, high - 1);
+      if (arr[high].compareTo(arr[low]) < 0)
+      {
+        swapRefIndex(arr, low, high);
+      }
+      if (arr[high].compareTo(arr[mid]) < 0)
+      {
+        swapRefIndex(arr, mid, high);
+      }
 
-      quicksort(a, low, i - 1); 
-      quicksort(a, i + 1, high);
+      swapRefIndex(arr, mid, high-1);
+      
+      // setting a pivot point 
+      Comparable pivotPoint = arr[high - 1];
+
+      // index increment store points 
+      int i, j;
+      for (i = low, j = high -1;;)
+      {
+        while (arr[++i].compareTo(pivotPoint) < 0);
+        while (pivotPoint.compareTo(arr[--j]) < 0);
+        if (i >= j)
+        {
+          break;
+        }
+        // swapping the reference points
+        swapRefIndex(arr, i, j);
+      }
+      swapRefIndex(arr, i, high-1);
+
+      quickSort(arr, low, i-1);
+      quickSort(arr, i + 1, high);
     }
   }
 
-  public static final void swapReferences(Object[] a, int index1, int index2) {
-    Object tmp = a[index1];
-    a[index1] = a[index2];
-    a[index2] = tmp;
+  // swapping the reference index 
+  public static final void swapRefIndex(Object[] arr, int ind1, int ind2)
+  {
+    // temp to apply to the first index applicable
+    Object temp = arr[ind1];
+    arr[ind1] = arr[ind2];
+    arr[ind2] = temp;
   }
 
-  private static void insertionSort(Comparable[] a, int low, int high) {
-    for (int p = low + 1; p <= high; p++) {
-      Comparable tmp = a[p];
+  private static void insertionSort(Comparable[] arr, int low, int high)
+  {
+    for (int i = low + 1; i <= high; i++)
+    {
+      Comparable temp = arr[i];
       int j;
-
-      for (j = p; j > low && tmp.compareTo(a[j - 1]) < 0; j--)
-        a[j] = a[j - 1];
-      a[j] = tmp;
+      for (j = i; j < low && temp.compareTo(arr[j - 1]) < 0; j--)
+      {
+        arr[j] = arr[j -1];
+      }
+      arr[j] = temp;
     }
   }
+
 }
-
-

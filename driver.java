@@ -24,6 +24,7 @@ public class driver{
     {
 
       // Case 1: Extra Small Array: Randomly Generated Values - Completely Unsorted (25k units)
+      // Merge Sort First, then Quick Sort 
       case 1: 
         // very small array - random assortion
         // having the start time start within the actual case, for most accurate timing.
@@ -43,7 +44,6 @@ public class driver{
         // function call for the sort 
         ob1.sort(arr1, 0, arr1.length - 1); 
         System.out.println("\nMerge Sorted Array: ");
-
         // calculation for time it takes to run.
         endTime = System.currentTimeMillis();
         elapsed = endTime - startTime1;
