@@ -1,8 +1,7 @@
 // Colton Parham: CDP210001 - Project 2, driver.java
 // CS 3345.505, Dr. Zhao
 // Driver file to run all of the tests against each other 
-// Quick Note: Opted to go with Comparable for both, for ease of construction, as well as went with the switch/case to give the options of a starting point. 
-
+// Quick Note: Opted to go with Comparable for both, for ease of construction, as well as went with the switch/case to give the options of a starting point.
 
 // Importing Scanner and Random to take input, and get those random values
 import java.util.Random;
