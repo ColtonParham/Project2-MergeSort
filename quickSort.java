@@ -1,8 +1,8 @@
 // Colton Parham: CDP210001 - Project 2, quickSort.java
 // CS 3345.505, Dr. Zhao
-
 // QuickSort - Median of 3, with a cutoff of 15
 
+// Quick sort parent class
 public class quickSort {
   // this will actually be used inside of the driver 
   public static void quickSort(Comparable[] arr)
@@ -10,6 +10,7 @@ public class quickSort {
     quickSort(arr, 0, arr.length - 1 );
   }
 
+  // static void quicksort with all of the parameters that will get pass into the function above
   static void quickSort(Comparable[] arr, int low, int high)
   {
     // setting the cutoff point to 15 as required by the instructions 
@@ -46,10 +47,12 @@ public class quickSort {
       int i, j;
       for (i = low, j = high -1;;)
       {
+        // comparing to those pivot points as needed
         while (arr[++i].compareTo(pivotPoint) < 0);
         while (pivotPoint.compareTo(arr[--j]) < 0);
         if (i >= j)
         {
+          // break if the i value is greater than or equal to j
           break;
         }
         // swapping the reference points
