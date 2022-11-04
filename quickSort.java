@@ -4,6 +4,7 @@
 // QuickSort - Median of 3, with a cutoff of 15
 
 public class quickSort {
+  // this will actually be used inside of the driver 
   public static void quickSort(Comparable[] arr)
   {
     quickSort(arr, 0, arr.length - 1 );
@@ -70,11 +71,12 @@ public class quickSort {
     arr[ind2] = temp;
   }
 
-  // this insertion sort function will be called, or utilized 
+  // this insertion sort function will be called, or utilized whenever cutoff meets 15. 
   private static void insertionSort(Comparable[] arr, int low, int high)
   {
     for (int i = low + 1; i <= high; i++)
     {
+      // setting up a temp var/arr
       Comparable temp = arr[i];
       int j;
       for (j = i; j > low && temp.compareTo(arr[j - 1]) < 0; j--)
