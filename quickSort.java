@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class quickSort {
   public static void quickSort(Comparable[] arr)
   {
-    quickSort(arr, 0, arr.length);
+    quickSort(arr, 0, arr.length - 1 );
   }
 
   static void quickSort(Comparable[] arr, int low, int high)
@@ -53,9 +53,9 @@ public class quickSort {
         // swapping the reference points
         swapRefIndex(arr, i, j);
       }
-      swapRefIndex(arr, i, high-1);
+      swapRefIndex(arr, i, high - 1);
 
-      quickSort(arr, low, i-1);
+      quickSort(arr, low, i - 1);
       quickSort(arr, i + 1, high);
     }
   }
@@ -69,13 +69,14 @@ public class quickSort {
     arr[ind2] = temp;
   }
 
+  // this insertion sort function will be called, or utilized 
   private static void insertionSort(Comparable[] arr, int low, int high)
   {
     for (int i = low + 1; i <= high; i++)
     {
       Comparable temp = arr[i];
       int j;
-      for (j = i; j < low && temp.compareTo(arr[j - 1]) < 0; j--)
+      for (j = i; j > low && temp.compareTo(arr[j - 1]) < 0; j--)
       {
         arr[j] = arr[j -1];
       }

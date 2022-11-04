@@ -1,6 +1,6 @@
 // Colton Parham: CDP210001 - Project 2, mergeSort.java
 // CS 3345.505, Dr. Zhao
-
+// converting to comparable instead.
 // scanner for input tests, as well as the random, for the random values to be produced inside of the arrays.
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,15 +11,15 @@ class mergeSort {
    // merge the first two subarr's
   // Subarray (or first array connected) = arr[l->m]
   // Subarray (or second array connected) = arr[m+1->r]
-  void merge(int arr[], int left,int m, int right)
+  void merge(Comparable arr[], int left,int m, int right)
   {
     // size of subarr
     int n1 = m - left + 1;
     int n2 = right - m;
 
     // setting up the left and right of the arr.
-    int L[] = new int[n1];
-    int R[] = new int[n2];
+    Comparable L[] = new Comparable[n1];
+    Comparable R[] = new Comparable[n2];
 
     // copying data 
     for (int i = 0; i < n1; ++i)
@@ -37,7 +37,7 @@ class mergeSort {
     int k = left;
     while (i < n1 && j < n2)
     {
-      if (L[i] <= R[j])
+      if (L[i].compareTo(R[j]) <= 0)
       {
         arr[k] = L[i];
         i++;
@@ -67,7 +67,7 @@ class mergeSort {
   }
 
   // actually sorting 
-  void sort(int arr[], int left, int right)
+  void sort(Comparable arr[], int left, int right)
   {
     if (left < right)
     {
@@ -80,6 +80,4 @@ class mergeSort {
       merge(arr, left, m , right);
     }
   }
-
-  
 }
