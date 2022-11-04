@@ -1,12 +1,8 @@
 // Colton Parham: CDP210001 - Project 2, mergeSort.java
 // CS 3345.505, Dr. Zhao
 // converting to comparable instead.
-// scanner for input tests, as well as the random, for the random values to be produced inside of the arrays.
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Random;
-import java.util.Scanner;
 
+// merge sort parent class
 class mergeSort {
    // merge the first two subarr's
   // Subarray (or first array connected) = arr[l->m]

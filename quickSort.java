@@ -1,6 +1,7 @@
-// QuickSort - Median of 3, with a cutoff of 15
+// Colton Parham: CDP210001 - Project 2, quickSort.java
+// CS 3345.505, Dr. Zhao
 
-import java.util.Scanner;
+// QuickSort - Median of 3, with a cutoff of 15
 
 public class quickSort {
   public static void quickSort(Comparable[] arr)
